@@ -11,7 +11,7 @@ print(float(distance_data[2][1])+0)
 
 package_hashtable = hash_table()
 print(package_hashtable.hash_array)
-loadPackageData("csv/packageCSV.csv", hash_table)
+loadPackageData("csv/packageCSV.csv", package_hashtable)
 print(package_hashtable.hash_array)
 
 p = package_hashtable.find(9)

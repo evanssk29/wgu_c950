@@ -1,4 +1,3 @@
-from Package import package
 
 
 class hash_table(object):
@@ -10,21 +9,21 @@ class hash_table(object):
             self.hash_array.append([])
         return
 
-    def insert(self, id, PACKAGE):
+    def insert(self, id, package):
         key = hash(id) % self.length
-        if [id, PACKAGE] not in self.hash_array[key]:
-            self.hash_array[key].append([id, PACKAGE])
+        if [id, package] not in self.hash_array[key]:
+            self.hash_array[key].append([id, package])
         return
 
     def printHashTable(self):
         print(self.hash_array)
         return
 
-    def update(self, id, PACKAGE):
+    def update(self, id, package):
         key = hash(id) % self.length
         for x in self.hash_array[key]:
             if x[0] == id:
-                x[1] = PACKAGE
+                x[1] = package
         return
 
     def find(self, ID):
