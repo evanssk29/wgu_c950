@@ -8,7 +8,7 @@ def load_packages_truck(package_numbers_list, hTable):
 
 
 class Truck(object):
-
+    # Constructor to initialize the object with required parameters.
     def __init__(self, packages = None, location = None, current_time = None, time_left_hub = None):
         self.packages = packages
         self.location = location
