@@ -2,7 +2,7 @@ def load_packages_truck(package_numbers_list, hTable):
     package_list = []
     for i in package_numbers_list:
         i = int(i)
-        hTable.find(i).STATUS = "TRANSIT"
+        hTable.find(i).status = "TRANSIT"
         package_list.append(hTable.find(i))
     return package_list
 

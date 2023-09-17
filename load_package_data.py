@@ -12,7 +12,7 @@ def loadPackageData(package_file, hash_table):
             package.TRUCK = None
             package.address = row[1]
             package.INFO: list[str] = [str.strip(x) for x in row[1::]]
-            package.STATUS = 'HUB'
+            package.status = 'HUB'
             package.delivered = None
             hash_table.insert(package.id, package)
             print(package)

@@ -5,7 +5,7 @@ class Package(object):
         self.id = id     # ID of the package
         self.info = info   # A list that contains all information about the package
         self.truck = truck   # Truck name the package is transported on
-        self.STATUS = location    # Location of the package
+        self.status = location    # Location of the package
         self.tLoaded = time_loaded   # Time package loaded onto a truck
         self.tDel = delivered   # Time of the delivery of the package
         self.address = None
@@ -19,7 +19,7 @@ class Package(object):
         print("\n\nPackage ID = ", self.id)
         print(" Package Details = ", self.info)
         print("Truck of Package = ", self.truck)
-        print("Status of Package = ", self.STATUS)
+        print("Status of Package = ", self.status)
         print("Time Package Loaded = ", self.tLoaded)
         print("Time Package Delivered= ", self.tDel)
         return

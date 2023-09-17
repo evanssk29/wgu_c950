@@ -15,7 +15,7 @@ class hash_table(object):
             self.hash_array[key].append([id, package])
         return
 
-    def printHashTable(self):
+    def print_hash_table(self):
         print(self.hash_array)
         return
 
