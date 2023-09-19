@@ -74,11 +74,12 @@ d = get_distance_two_addresses(starting_address, address_data[1][2])
 print(d)
 HUB = address_data[0][2]
 
-truck_1 = Truck([1, 5, 9], HUB, time_left_hub= datetime.timedelta(hours=8))
+# Assigning packages to trucks
+truck_1 = Truck([1, 2, 4, 5, 7, 8, 10, 11, 12, 21, 22, 23, 24, 26, 27, 29], HUB, time_left_hub= datetime.timedelta(hours=8))
 truck_delivery(truck_1)
 
-truck_2 = Truck([1, 5, 9], HUB, time_left_hub= datetime.timedelta(hours=9, minutes=10))
+truck_2 = Truck([3, 13, 14, 15, 16, 17, 18, 19, 20, 30, 31, 33, 34, 35, 36, 38], HUB, time_left_hub= datetime.timedelta(hours=9, minutes=10))
 truck_delivery(truck_2)
 
-truck_3 = Truck([1, 5, 9], HUB, time_left_hub= datetime.timedelta(hours=10, minutes= 30))
+truck_3 = Truck([6, 25, 28, 32, 37, 39, 40, 9], HUB, time_left_hub= datetime.timedelta(hours=10, minutes= 30))
 truck_delivery(truck_3)
