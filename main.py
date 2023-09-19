@@ -1,11 +1,11 @@
+# Steven Evans
+# Student ID: 000391474
 import datetime
 from hash_table import hash_table
 from load_address_data import load_address_data
 from load_distance_data import loadDistanceData
 from load_package_data import loadPackageData
 from truck import Truck
-# Steven Evans
-# Student ID: 000391474
 
 # Import the distance and address CSV.
 file_name = "csv/distanceCSV.csv"

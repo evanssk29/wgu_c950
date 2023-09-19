@@ -1,3 +1,5 @@
+# Steven Evans
+# Student ID: 000391474
 import csv
 
 def loadDistanceData(fileName):

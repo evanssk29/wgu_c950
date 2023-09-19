@@ -1,3 +1,5 @@
+# Steven Evans
+# Student ID: 000391474
 def load_packages_truck(package_numbers_list, hTable):
     package_list = []
     for i in package_numbers_list:
