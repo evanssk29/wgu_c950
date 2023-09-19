@@ -1,5 +1,3 @@
-
-
 class hash_table(object):
 
     def __init__(self, length = 10):

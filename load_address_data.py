@@ -1,6 +1,5 @@
 import csv
 
-
 def load_address_data(fileName):
     address_data = []
     with open(fileName) as csv_file:

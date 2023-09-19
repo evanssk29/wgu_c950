@@ -1,6 +1,5 @@
 import csv
 
-
 def loadDistanceData(fileName):
     distance_data = []
     with open(fileName) as csv_file:

@@ -1,4 +1,5 @@
 class Package(object):
+
     # Constructor function with required parameters for Package.
     def __init__(self, id = None, info = None, truck = None, location ='HUB', time_loaded = None, delivered = None):
         self.id = id     # ID of the package
@@ -11,7 +12,7 @@ class Package(object):
         return
 
     def __str__(self):
-        return f"{self.id} {self.address}"
+        return f"{self.id} {self.address} {self.tDel} {self.info}"
 
     def printPackage(self):
         print("\n\nPackage ID = ", self.id)
