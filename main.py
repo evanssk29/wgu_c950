@@ -7,7 +7,7 @@ from load_distance_data import loadDistanceData
 from load_package_data import loadPackageData
 from truck import Truck
 
-
+# Parameters for finding address
 def find_address_index(address_to_find):
     index = 0
     for address in address_data:
@@ -16,7 +16,7 @@ def find_address_index(address_to_find):
         index += 1
     return -1
 
-
+# Compares the difference between two addresses
 def get_distance_two_addresses(starting, destination):
     starting_index = find_address_index(starting)
     destination_index = find_address_index(destination)
@@ -30,6 +30,7 @@ def get_distance_two_addresses(starting, destination):
         distance = float(distance_data[destination_index][starting_index])
     return distance
 
+# test for distances
 def test_distances():
     for address in address_data:
         distance = get_distance_two_addresses(address_data[0], address)
@@ -42,10 +43,9 @@ distance_data = loadDistanceData(file_name)
 package_hashtable = hash_table()
 loadPackageData("packageCSV.csv", package_hashtable)
 address_data = load_address_data(address_file_name)
-# test_distances()
 
 
-# Parameters for truck delivery
+# Parameters for truck / delivery greedy algorithm
 def truck_delivery(truck):
     current_time = truck.time_left_hub
     current_location = truck.current_location
@@ -84,15 +84,16 @@ truck_delivery(truck_2)
 # Assigning packages to truck 3
 t3 = [6, 25, 28, 32, 37, 39, 40, 9]
 p9 = package_hashtable.search(9)
-# p9.address = "410 South State Street"
+# p9.address = "410 South State Street"  ****** Need to update
 truck_3 = Truck(t3, time_left_hub= datetime.timedelta(hours=10, minutes= 30))
 truck_delivery(truck_3)
-total_miles = truck_1.miles + truck_2.miles + truck_3.miles
+total_miles = truck_1.miles + truck_2.miles + truck_3.miles # Total miles for all combined trucks
 
+# User interface to search for packages
 while True:
     print("//////////////////////////////////////////////")
-    print("Total miles:", total_miles)
-    print("A: All package status")
+    print("Total miles:", total_miles) # Prints total miles of all trucks combines
+    print("A: All package status") # UI input options
     print("B: Single package status")
     print("C: All package status at a time")
     print("X: Exit")
@@ -103,7 +104,7 @@ while True:
             p = package_hashtable.search(package_id)
             print(p)
 
-    elif choice == "B":
+    elif choice == "B": # Prints package status
         package_id = int(input ("Enter package id"))
         p = package_hashtable.search(package_id)
         print(p)
@@ -115,5 +116,5 @@ while True:
             p = package_hashtable.search(package_id)
             print(p.time_status(user_time))
 
-    elif choice == "X":
+    elif choice == "X": # Exits ui
         exit()
