@@ -2,6 +2,7 @@
 # Student ID: 000391474
 import csv
 
+# Loads and returns distance data
 def loadDistanceData(fileName):
     distance_data = []
     with open(fileName) as csv_file:
