@@ -67,7 +67,7 @@ def truck_delivery(truck):
         min_package.left_hub = truck.time_left_hub
         truck.packages.remove(min_package.id)
         truck.miles += min_distance
-        print(current_location, min_package.address, min_distance, min_package)
+        # print(current_location, min_package.address, min_distance, min_package)
         current_location = min_package.address
 
 
@@ -84,15 +84,26 @@ truck_delivery(truck_2)
 # Assigning packages to truck 3
 t3 = [6, 25, 28, 32, 37, 39, 40, 9]
 p9 = package_hashtable.search(9)
-# p9.address = "410 South State Street"  ****** Need to update
+
+
+# if datetime < datetime.timedelta(hours=10, minutes=20):
+#     p9.address = "410 S. State St., Salt Lake City, UT 84111"
+# else:
+#     p9.address = "300 State St,Salt Lake City,UT,84103"
+
+# ****** Need to update The delivery address for package #9,
+# Third District Juvenile Court, is wrong and will be corrected at 10:20 a.m.
+# WGUPS is aware that the address is incorrect and will be updated at 10:20 a.m.
+# However, WGUPS does not know the correct address (410 S. State St., Salt Lake City, UT 84111) until 10:20 a.m.
+
 truck_3 = Truck(t3, time_left_hub= datetime.timedelta(hours=10, minutes= 30))
 truck_delivery(truck_3)
 total_miles = truck_1.miles + truck_2.miles + truck_3.miles # Total miles for all combined trucks
 
 # User interface to search for packages
 while True:
-    print("//////////////////////////////////////////////")
-    print("Total miles:", total_miles) # Prints total miles of all trucks combines
+    print("****** Western Governors University Package Service ******")
+    print("Total mileage for all trucks:", total_miles) # Prints total miles of all trucks combines
     print("A: All package status") # UI input options
     print("B: Single package status")
     print("C: All package status at a time")

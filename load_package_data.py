@@ -15,14 +15,6 @@ def loadPackageData(package_file, hash_table):
             p_zip = row[4]
             p_deadline = row[5]
             p_weight = row[6]
-            # print(p_id, ':', p_address, ',', p_city, ',', p_state, ',', p_zip, "Deadline:", p_deadline, "Weight:", p_weight)
 
             package = Package(p_id, p_address, p_city, p_state, p_zip, p_deadline, p_weight)
-            # package.id = int(str.strip(row[0]))
-            # package.TRUCK = None
-            # package.address = row[1]
-            # package.INFO: list[str] = [str.strip(x) for x in row[1::]]
-            # package.status = 'HUB'
-            # package.delivered = None
             hash_table.insert(p_id, package)
-            # print(package)
