@@ -45,7 +45,7 @@ loadPackageData("packageCSV.csv", package_hashtable)
 address_data = load_address_data(address_file_name)
 
 
-# Parameters for truck / delivery greedy algorithm
+# Greedy algorithm
 def truck_delivery(truck):
     current_time = truck.time_left_hub
     current_location = truck.current_location
@@ -85,17 +85,6 @@ truck_delivery(truck_2)
 t3 = [6, 25, 28, 32, 37, 39, 40, 9]
 p9 = package_hashtable.search(9)
 
-
-# if datetime < datetime.timedelta(hours=10, minutes=20):
-#     p9.address = "410 S. State St., Salt Lake City, UT 84111"
-# else:
-#     p9.address = "300 State St,Salt Lake City,UT,84103"
-
-# ****** Need to update The delivery address for package #9,
-# Third District Juvenile Court, is wrong and will be corrected at 10:20 a.m.
-# WGUPS is aware that the address is incorrect and will be updated at 10:20 a.m.
-# However, WGUPS does not know the correct address (410 S. State St., Salt Lake City, UT 84111) until 10:20 a.m.
-
 truck_3 = Truck(t3, time_left_hub= datetime.timedelta(hours=10, minutes= 30))
 truck_delivery(truck_3)
 total_miles = truck_1.miles + truck_2.miles + truck_3.miles # Total miles for all combined trucks
@@ -109,6 +98,7 @@ while True:
     print("C: All package status at a time")
     print("X: Exit")
     choice = input("Select an option")
+
     if choice == "A":
 
         for package_id in range(1, 41):
@@ -118,14 +108,31 @@ while True:
     elif choice == "B": # Prints package status
         package_id = int(input ("Enter package id"))
         p = package_hashtable.search(package_id)
+
         print(p)
 
     elif choice == "C":
-        user_time = datetime.timedelta(hours=11, minutes=45)
+        # user_time = input("Add time in the format HH:MM")
+        user_time = datetime.timedelta(hours=10, minutes=40)
+
+        p9 = package_hashtable.search(9)
+
+        # *** Package 9 update not working ***
+        # ****** Need to update The delivery address for package #9,
+        # Third District Juvenile Court, is wrong and will be corrected at 10:20 a.m.
+        # WGUPS is aware that the address is incorrect and will be updated at 10:20 a.m.
+        # However, WGUPS does not know the correct address (410 S. State St., Salt Lake City, UT 84111) until 10:20 a.m.
+
+        if user_time < datetime.timedelta(hours=10, minutes=20):
+            p9.address = "410 S State St,Salt Lake City,UT,84111"
+            print(p9)
+        else:
+            p9.address = "300 State St,Salt Lake City,UT,84103"
+            print(p9)
 
         for package_id in range(1, 41):
             p = package_hashtable.search(package_id)
-            print(p.time_status(user_time))
+            # print(p.time_status(user_time))
 
     elif choice == "X": # Exits ui
         exit()

@@ -20,9 +20,12 @@ class Package:
         return "%s, %s, %s, %s, %s, %s, %s, %s, %s, %s" % (self.id, self.address, self.city, self.state, self.zip, self.weight, self.deadline, self.status, self.delivery_time, self.left_hub)
 
     def time_status(self, status_time):
-        new_status = "Enroute"
-        if status_time > self.delivery_time:
-            new_status = "Delivered"
-        elif status_time < self.left_hub:
-            new_status = "At HUB"
-        return "%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s" % (self.id, self.address, self.city, self.state, self.zip, self.weight, self.deadline, new_status, self.left_hub, self.delivery_time,status_time)
+            new_status = "Enroute"
+            if status_time > self.delivery_time:
+                new_status = "Delivered"
+                return "Package ID: %s, Address: %s, %s, %s, %s, %s, %s, %s, Time Delivered: %s, Time Left HUB: %s" % (self.id, self.address, self.city, self.state, self.zip, self.weight, self.deadline, self.status, self.delivery_time, self.left_hub)
+            elif status_time < self.left_hub:
+                new_status = "At HUB"
+                return "Package ID: %s, Address: %s, %s, %s, %s, Weight: %s, Deadline: %s, Updated Status: %s" % (self.id, self.address, self.city, self.state, self.zip, self.weight, self.deadline, new_status)
+            else:
+                return "%s, %s, %s, %s, %s, %s, %s, %s" % (self.id, self.address, self.city, self.state, self.zip, self.weight, self.deadline, new_status)
