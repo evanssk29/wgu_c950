@@ -93,25 +93,25 @@ total_miles = truck_1.miles + truck_2.miles + truck_3.miles # Total miles for al
 while True:
     print("****** Western Governors University Package Service ******")
     print("Total mileage for all trucks:", total_miles) # Prints total miles of all trucks combines
-    print("A: All package status") # UI input options
-    print("B: Single package status")
-    print("C: All package status at a time")
-    print("X: Exit")
+    print("1: All package status") # UI input options
+    print("2: Single package status")
+    print("3: All package status at a time")
+    print("x: Exit")
     choice = input("Select an option")
 
-    if choice == "A":
+    if choice == "1":
 
         for package_id in range(1, 41):
             p = package_hashtable.search(package_id)
             print(p)
 
-    elif choice == "B": # Prints package status
+    elif choice == "2": # Prints package status
         package_id = int(input ("Enter package id"))
         p = package_hashtable.search(package_id)
 
         print(p)
 
-    elif choice == "C":
+    elif choice == "3":
         # user_time = input("Add time in the format HH:MM")
         user_time = datetime.timedelta(hours=10, minutes=40)
 
@@ -134,5 +134,5 @@ while True:
             p = package_hashtable.search(package_id)
             # print(p.time_status(user_time))
 
-    elif choice == "X": # Exits ui
+    elif choice == "x": # Exits ui
         exit()
