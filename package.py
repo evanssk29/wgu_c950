@@ -17,7 +17,7 @@ class Package:
         return
 
     def __str__(self):  # overwrite print(Package) otherwise it will print object reference
-        #Not working
+        # Not working
         if self.delivery_time > self.left_hub:
             self.status = "En route"
         if self.delivery_time == self.deadline:
@@ -28,7 +28,7 @@ class Package:
 
 
 
-
+    #Not working
     # def time_status(self, status_time):
     #         new_status = "En route"
     #         if status_time > self.delivery_time:
