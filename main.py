@@ -126,9 +126,6 @@ while True:
         user_time = datetime.timedelta(hours=user_time_hour, minutes=user_time_minutes)
 
 
-
-
-
         # Updates package 9
         if user_time < datetime.timedelta(hours=10, minutes=20):
             p9.address = "300 State St,Salt Lake City,UT,84103"
