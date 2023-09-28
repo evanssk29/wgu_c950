@@ -19,13 +19,13 @@ class Package:
     def __str__(self):  # overwrite print(Package) otherwise it will print object reference
         return "*Package ID: %s, Address: %s, %s, %s, %s, Deadline: %s, Weight: %s lbs, Status: %s, Time delivered: %s, Time left HUB: %s" % (self.id, self.address, self.city, self.state, self.zip, self.deadline, self.weight, self.status, self.delivery_time, self.left_hub)
 
-    def time_status(self, status_time):
-            new_status = "En route"
-            if status_time > self.delivery_time:
-                new_status = "Delivered"
-                return " Package ID: %s, Address: %s, %s, %s, %s, Deadline: %s, Weight: %s lbs, %s, Time Delivered: %s, Time Left HUB: %s" % (self.id, self.address, self.city, self.state, self.zip, self.deadline, self.weight, self.status, self.delivery_time, self.left_hub, new_status)
-            elif status_time < self.left_hub:
-                new_status = "At HUB"
-                return " status_time < self.left_hub Package ID: %s, Address: %s, %s, %s, %s, Deadline: %s, Weight: %s lbs, Updated Status: %s" % (self.id, self.address, self.city, self.state, self.zip, self.deadline, self.weight, new_status)
-            else:
-                return " else Package ID: %s, %s, %s, %s, %s, Weight: %s lbs, Deadline: %s, Updated Status: %s" % (self.id, self.address, self.city, self.state, self.zip, self.weight, self.deadline, new_status)
+    # def time_status(self, status_time):
+    #         new_status = "En route"
+    #         if status_time > self.delivery_time:
+    #             new_status = "Delivered"
+    #             return " Package ID: %s, Address: %s, %s, %s, %s, Deadline: %s, Weight: %s lbs, %s, Time Delivered: %s, Time Left HUB: %s" % (self.id, self.address, self.city, self.state, self.zip, self.deadline, self.weight, self.status, self.delivery_time, self.left_hub, new_status)
+    #         elif status_time < self.left_hub:
+    #             new_status = "At HUB"
+    #             return " status_time < self.left_hub Package ID: %s, Address: %s, %s, %s, %s, Deadline: %s, Weight: %s lbs, Updated Status: %s" % (self.id, self.address, self.city, self.state, self.zip, self.deadline, self.weight, new_status)
+    #         else:
+    #             return " else Package ID: %s, %s, %s, %s, %s, Weight: %s lbs, Deadline: %s, Updated Status: %s" % (self.id, self.address, self.city, self.state, self.zip, self.weight, self.deadline, new_status)
