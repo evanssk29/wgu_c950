@@ -112,22 +112,18 @@ while True:
         print(p)
 
     elif choice == "3":
-        # user_time = input("Add time in the format HH:MM")
-        user_time = datetime.timedelta(hours=10, minutes=40)
+        user_time_hour = int(input("What hour would you like to see?"))
+        user_time_minutes = int(input("What minutes would you like to see?"))
+        user_time = datetime.timedelta(hours=user_time_hour, minutes=user_time_minutes)
 
         p9 = package_hashtable.search(9)
 
-        # *** Package 9 update not working ***
-        # ****** Need to update The delivery address for package #9,
-        # Third District Juvenile Court, is wrong and will be corrected at 10:20 a.m.
-        # WGUPS is aware that the address is incorrect and will be updated at 10:20 a.m.
-        # However, WGUPS does not know the correct address (410 S. State St., Salt Lake City, UT 84111) until 10:20 a.m.
 
         if user_time < datetime.timedelta(hours=10, minutes=20):
-            p9.address = "410 S State St,Salt Lake City,UT,84111"
+            p9.address = "300 State St,Salt Lake City,UT,84103"
             print(p9)
         else:
-            p9.address = "300 State St,Salt Lake City,UT,84103"
+            p9.address = "410 S State St,Salt Lake City,UT,84111"
             print(p9)
 
         for package_id in range(1, 41):
