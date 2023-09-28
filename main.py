@@ -22,10 +22,10 @@ def get_distance_two_addresses(starting, destination):
     destination_index = find_address_index(destination)
 
     distance = 0
-    #
+
     if starting_index > destination_index:
         distance = float(distance_data[starting_index][destination_index])
-    #
+
     else:
         distance = float(distance_data[destination_index][starting_index])
     return distance
@@ -50,7 +50,7 @@ def truck_delivery(truck):
     current_time = truck.time_left_hub
     current_location = truck.current_location
 
-    while len(truck.packages) > 0: # While truck still has packages to deliver, prints distance.
+    while len(truck.packages) > 0:
         min_distance = 1000
         min_package = None
         for id in truck.packages:
@@ -67,25 +67,24 @@ def truck_delivery(truck):
         min_package.left_hub = truck.time_left_hub
         truck.packages.remove(min_package.id)
         truck.miles += min_distance
-        # print(current_location, min_package.address, min_distance, min_package)
         current_location = min_package.address
 
 
 # Assigning packages to truck 1
 t1 = [1, 2, 4, 5, 7, 8, 10, 11, 12, 21, 22, 23, 24, 26, 27, 29]
-truck_1 = Truck(t1, time_left_hub= datetime.timedelta(hours=8))
+truck_1 = Truck(t1, time_left_hub= datetime.timedelta(hours=8)) # Time truck 1 left hub
 truck_delivery(truck_1)
 
 # Assigning packages to truck 2
 t2 = [3, 13, 14, 15, 16, 17, 18, 19, 20, 30, 31, 33, 34, 35, 36, 38]
-truck_2 = Truck(t2, time_left_hub= datetime.timedelta(hours=9, minutes=10))
+truck_2 = Truck(t2, time_left_hub= datetime.timedelta(hours=9, minutes=10)) # Time truck 2 left hub
 truck_delivery(truck_2)
 
 # Assigning packages to truck 3
 t3 = [6, 25, 28, 32, 37, 39, 40, 9]
 p9 = package_hashtable.search(9)
 
-truck_3 = Truck(t3, time_left_hub= datetime.timedelta(hours=10, minutes= 30))
+truck_3 = Truck(t3, time_left_hub= datetime.timedelta(hours=10, minutes= 30)) # Time truck 3 left hub
 truck_delivery(truck_3)
 total_miles = truck_1.miles + truck_2.miles + truck_3.miles # Total miles for all combined trucks
 
@@ -93,42 +92,62 @@ total_miles = truck_1.miles + truck_2.miles + truck_3.miles # Total miles for al
 while True:
     print("****** Western Governors University Package Service ******")
     print("Total mileage for all trucks:", total_miles) # Prints total miles of all trucks combines
-    print("1: All package status") # UI input options
-    print("2: Single package status")
-    print("3: All package status at a time")
+    print("1: All package status at certain time") # UI input options
+    print("2: Single package status at a certain time")
     print("x: Exit")
     choice = input("Select an option")
 
-    if choice == "1":
+    if choice == "1": #Prints all package status
+        user_time_hour = int(input("What hour would you like to see? Enter in military time?"))
+        user_time_minutes = int(input("What minutes would you like to see? Enter in military time?"))
+        user_time = datetime.timedelta(hours=user_time_hour, minutes=user_time_minutes)
 
         for package_id in range(1, 41):
             p = package_hashtable.search(package_id)
+            if user_time < datetime.timedelta(hours=10, minutes=20):
+                p9.address = "300 State St,Salt Lake City,UT,84103"
+
+            else:
+                p9.address = "410 S State St,Salt Lake City,UT,84111"
+
             print(p)
+
+
 
     elif choice == "2": # Prints package status
         package_id = int(input ("Enter package id"))
         p = package_hashtable.search(package_id)
-
-        print(p)
-
-    elif choice == "3":
         user_time_hour = int(input("What hour would you like to see?"))
         user_time_minutes = int(input("What minutes would you like to see?"))
         user_time = datetime.timedelta(hours=user_time_hour, minutes=user_time_minutes)
-
-        p9 = package_hashtable.search(9)
-
-
         if user_time < datetime.timedelta(hours=10, minutes=20):
             p9.address = "300 State St,Salt Lake City,UT,84103"
-            print(p9)
+
         else:
             p9.address = "410 S State St,Salt Lake City,UT,84111"
-            print(p9)
 
-        for package_id in range(1, 41):
-            p = package_hashtable.search(package_id)
-            # print(p.time_status(user_time))
+
+        print(p)
+
+    # elif choice == "2":
+    #
+    #     package_input = input("What package would you like to see?")
+    #     package_search = package_hashtable.search(int(package_input))
+    #
+    #     user_time_hour = int(input("What hour would you like to see?"))
+    #     user_time_minutes = int(input("What minutes would you like to see?"))
+    #     user_time = datetime.timedelta(hours=user_time_hour, minutes=user_time_minutes)
+    #
+    #     if user_time < datetime.timedelta(hours=10, minutes=20): # Updates package 9 to correct address at 10:20
+    #         p9.address = "300 State St,Salt Lake City,UT,84103"
+    #         print(p9)
+    #     else:
+    #         p9.address = "410 S State St,Salt Lake City,UT,84111"
+    #         print(p9)
+    #
+    #     for package_id in range(1, 41):
+    #         p = package_hashtable.search(package_id)
+
 
     elif choice == "x": # Exits ui
         exit()
