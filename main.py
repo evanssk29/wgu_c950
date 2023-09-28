@@ -94,19 +94,25 @@ while True:
     print("Total mileage for all trucks:", total_miles) # Prints total miles of all trucks combines
     print("1: All package status at certain time") # UI input options
     print("2: Single package status at a certain time")
-    print("x: Exit")
+    print("3: Exit")
     choice = input("Select an option")
 
     if choice == "1": #Prints all package status
+
         user_time_hour = int(input("What hour would you like to see? Enter in military time?"))
         user_time_minutes = int(input("What minutes would you like to see? Enter in military time?"))
         user_time = datetime.timedelta(hours=user_time_hour, minutes=user_time_minutes)
+
+        # test to fix status update
+
+
+
+        #
 
         for package_id in range(1, 41):
             p = package_hashtable.search(package_id)
             if user_time < datetime.timedelta(hours=10, minutes=20):
                 p9.address = "300 State St,Salt Lake City,UT,84103"
-
             else:
                 p9.address = "410 S State St,Salt Lake City,UT,84111"
 
@@ -114,40 +120,24 @@ while True:
 
 
 
-    elif choice == "2": # Prints package status
+    elif choice == "2": # Prints single package status
+
         package_id = int(input ("Enter package id"))
         p = package_hashtable.search(package_id)
         user_time_hour = int(input("What hour would you like to see?"))
         user_time_minutes = int(input("What minutes would you like to see?"))
         user_time = datetime.timedelta(hours=user_time_hour, minutes=user_time_minutes)
+
+
+
         if user_time < datetime.timedelta(hours=10, minutes=20):
             p9.address = "300 State St,Salt Lake City,UT,84103"
-
         else:
             p9.address = "410 S State St,Salt Lake City,UT,84111"
 
 
         print(p)
 
-    # elif choice == "2":
-    #
-    #     package_input = input("What package would you like to see?")
-    #     package_search = package_hashtable.search(int(package_input))
-    #
-    #     user_time_hour = int(input("What hour would you like to see?"))
-    #     user_time_minutes = int(input("What minutes would you like to see?"))
-    #     user_time = datetime.timedelta(hours=user_time_hour, minutes=user_time_minutes)
-    #
-    #     if user_time < datetime.timedelta(hours=10, minutes=20): # Updates package 9 to correct address at 10:20
-    #         p9.address = "300 State St,Salt Lake City,UT,84103"
-    #         print(p9)
-    #     else:
-    #         p9.address = "410 S State St,Salt Lake City,UT,84111"
-    #         print(p9)
-    #
-    #     for package_id in range(1, 41):
-    #         p = package_hashtable.search(package_id)
 
-
-    elif choice == "x": # Exits ui
+    elif choice == "3": # Exits ui
         exit()
