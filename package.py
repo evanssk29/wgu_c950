@@ -18,12 +18,10 @@ class Package:
 
     def __str__(self):  # overwrite print(Package) otherwise it will print object reference
         # Not working
-        if self.delivery_time > self.left_hub:
-            self.status = "En route"
-        if self.delivery_time == self.deadline:
-            self.status = "Delivered"
-        else:
-            self.status = "At HUB"
+        # if self.delivery_time > self.left_hub:
+        #     self.status = "En route"
+        # else:
+        #     self.status = "At HUB"
         return "Package ID: %s, Address: %s, %s, %s, %s, Deadline: %s, Weight: %s lbs, Status: %s, Time delivered: %s, Time left HUB: %s" % (self.id, self.address, self.city, self.state, self.zip, self.deadline, self.weight, self.status, self.delivery_time, self.left_hub)
 
 
