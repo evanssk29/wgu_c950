@@ -16,14 +16,29 @@ class Package:
         self.left_hub = None # Time left HUB
         return
 
+    # FROM WGU VIDEO
+    # def print_package(self):
+    #     print("\n\nPackage ID = ", self.id)
+    #     print("Package Address = ", self.address)
+    #     print("City = ", self.city)
+    #     print("State = ", self.state)
+    #     print("Zip = ", self.zip)
+    #     print("Deadline = ", self.deadline)
+    #     print("Weight = ", self.weight)
+    #     print("Status = ", self.status)
+    #     print("Delivery Time = ", self.delivery_time)
+    #     print("Left HUB = ", self.left_hub)
+    #     return
+
+
+    #****************************
     def __str__(self):  # overwrite print(Package) otherwise it will print object reference
-        # Not working
+        # ***** Not working
         # if self.delivery_time > self.left_hub:
         #     self.status = "En route"
         # else:
         #     self.status = "At HUB"
-        return "Package ID: %s, Address: %s, %s, %s, %s, Deadline: %s, Weight: %s lbs, Status: %s, Time delivered: %s, Time left HUB: %s" % (self.id, self.address, self.city, self.state, self.zip, self.deadline, self.weight, self.status, self.delivery_time, self.left_hub)
-
+        return "Package ID: %s\n    Address: %s, %s, %s, %s    \n    Deadline: %s, Weight: %s lbs, Status: %s\n    Expected delivery: %s, Time left HUB: %s" % (self.id, self.address, self.city, self.state, self.zip, self.deadline, self.weight, self.status, self.delivery_time, self.left_hub)
 
 
     #Not working
@@ -31,7 +46,7 @@ class Package:
     #         new_status = "En route"
     #         if status_time > self.delivery_time:
     #             self.status = "Delivered"
-    #             # new_status = "Delivered"
+    #             new_status = "Delivered"
     #             return " Package ID: %s, Address: %s, %s, %s, %s, Deadline: %s, Weight: %s lbs, %s, Time Delivered: %s, Time Left HUB: %s" % (self.id, self.address, self.city, self.state, self.zip, self.deadline, self.weight, self.status, self.delivery_time, self.left_hub, new_status)
     #         elif status_time < self.left_hub:
     #             self.status = "At HUB"
@@ -39,3 +54,8 @@ class Package:
     #             return " status_time < self.left_hub Package ID: %s, Address: %s, %s, %s, %s, Deadline: %s, Weight: %s lbs, Updated Status: %s" % (self.id, self.address, self.city, self.state, self.zip, self.deadline, self.weight, new_status)
     #         else:
     #             return " else Package ID: %s, %s, %s, %s, %s, Weight: %s lbs, Deadline: %s, Updated Status: %s" % (self.id, self.address, self.city, self.state, self.zip, self.weight, self.deadline, new_status)
+
+
+def time_status():
+
+    return None
