@@ -21,7 +21,7 @@ class Package:
 
 
     def __str__(self):  # overwrite print(Package) otherwise it will print object reference
-        return "Package ID: %s\n    Address: %s, %s, %s, %s    \n    Deadline: %s, Weight: %s lbs, Status: %s\n    Delivered: %s, Time left HUB: %s" % (self.id, self.address, self.city, self.state, self.zip, self.deadline, self.weight, self.status, self.delivery_time, self.left_hub)
+        return "Package ID: %s, Address: %s, %s, %s, %s, Deadline: %s, Weight: %s lbs, Status: %s, Delivered: %s, Time left HUB: %s" % (self.id, self.address, self.city, self.state, self.zip, self.deadline, self.weight, self.status, self.delivery_time, self.left_hub)
 
     # Updates status of package to en route, delivered, or at hub based on time
     def time_status(self, status_time):
@@ -52,4 +52,4 @@ class Package:
                 state = "UT"
                 zip = "84111"
 
-            return "Package ID: %s\n    Address: %s, %s, %s, %s    \n    Deadline: %s, Weight: %s lbs, Status: %s\n    Delivered: %s, Time left HUB: %s" % (self.id, address, city, state, zip, self.deadline, self.weight, new_status, self.delivery_time, self.left_hub)
+            return "Package ID: %s, Address: %s, %s, %s, %s, Deadline: %s, Weight: %s lbs, Status: %s, Delivered: %s, Time left HUB: %s" % (self.id, address, city, state, zip, self.deadline, self.weight, new_status, self.delivery_time, self.left_hub)

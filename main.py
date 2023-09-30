@@ -105,7 +105,7 @@ while True:
     print("2: Single package status at a certain time.")
     print("3: All package status.")
     print("4: Exit")
-    choice = input("Select an option.")
+    choice = input("Select an option: ")
 
     if choice == "1": # Prints all package status at specified time
 
