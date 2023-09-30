@@ -3,7 +3,7 @@
 import csv
 from package import Package
 
-
+# parameters for package data
 def loadPackageData(package_file, hash_table):
     with open(package_file) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter = ',')

@@ -32,7 +32,7 @@ def get_distance_two_addresses(starting, destination):
     return distance
 
 
-# Import the distance and address CSV.
+# Import  CSV.
 file_name = "distanceCSV.csv"
 address_file_name = "addressCSV.csv"
 distance_data = loadDistanceData(file_name)
@@ -85,55 +85,50 @@ p9 = package_hashtable.search(9)
 
 truck_3 = Truck(t3, time_left_hub= datetime.timedelta(hours=10, minutes= 30)) # Time truck 3 left hub
 truck_delivery(truck_3)
+
 total_miles = truck_1.miles + truck_2.miles + truck_3.miles # Total miles for all combined trucks
 
+
+# User input for ui
+def get_user_input():
+    user_time_hour = int(input("Enter hours in 24 hour format HH:"))
+    user_time_minutes = int(input("Enter minutes MM:"))
+    user_time = datetime.timedelta(hours=user_time_hour, minutes=user_time_minutes)
+    return user_time
 
 
 # User interface to search for packages
 while True:
     print("****** Western Governors University Package Service ******")
     print("Total mileage for all trucks:", total_miles) # Prints total miles of all trucks combines
-    print("1: All package status at certain time")
-    print("2: Single package status at a certain time")
-    print("3: Exit")
-    choice = input("Select an option")
+    print("1: All package status at certain time.")
+    print("2: Single package status at a certain time.")
+    print("3: All package status.")
+    print("4: Exit")
+    choice = input("Select an option.")
 
-    if choice == "1": #Prints all package status from ui choice 1
+    if choice == "1": # Prints all package status at specified time
 
-        user_time_hour = int(input("Enter hours in 24 hour format HH:"))
-        user_time_minutes = int(input("Enter minutes MM:"))
-        user_time = datetime.timedelta(hours=user_time_hour, minutes=user_time_minutes)
-        delivery_time = package.time_status
+        user_time = get_user_input()
 
         for package_id in range(1, 41):
             p = package_hashtable.search(package_id)
-            # Updates package 9 to correct address at 1020
-            if user_time < datetime.timedelta(hours=10, minutes=20):
-                p9.address = "300 State St,Salt Lake City,UT,84103"
-            else:
-                p9.address = "410 S State St,Salt Lake City,UT,84111"
-
-            print(p)
+            print(p.time_status(user_time))
 
 
 
-    elif choice == "2": # Prints single package status from ui choice 2
+    elif choice == "2": # Prints single package status at specified time
 
         package_id = int(input ("Enter package id:"))
         p = package_hashtable.search(package_id)
-        user_time_hour = int(input("Enter hours in 24 hour format HH:"))
-        user_time_minutes = int(input("Enter minutes MM:"))
-        user_time = datetime.timedelta(hours=user_time_hour, minutes=user_time_minutes)
+        user_time = get_user_input()
+        print(p.time_status(user_time))
 
+    elif choice == "3": # Prints all package status
 
-        # Updates package 9 to correct address at 1020
-        if user_time < datetime.timedelta(hours=10, minutes=20):
-            p9.address = "300 State St,Salt Lake City,UT,84103"
-        else:
-            p9.address = "410 S State St,Salt Lake City,UT,84111"
+        for package_id in range(1, 41):
+            p = package_hashtable.search(package_id)
+            print(p)
 
-        print(p)
-
-
-    elif choice == "3": # Exits ui
+    elif choice == "4": # Exits ui
         exit()

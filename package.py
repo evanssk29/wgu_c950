@@ -1,5 +1,8 @@
 # Steven Evans
 # Student ID: 000391474
+import datetime
+
+
 class Package:
 
     # Constructor function with required parameters for Package.
@@ -16,46 +19,37 @@ class Package:
         self.left_hub = None # Time left HUB
         return
 
-    # FROM WGU VIDEO
-    # def print_package(self):
-    #     print("\n\nPackage ID = ", self.id)
-    #     print("Package Address = ", self.address)
-    #     print("City = ", self.city)
-    #     print("State = ", self.state)
-    #     print("Zip = ", self.zip)
-    #     print("Deadline = ", self.deadline)
-    #     print("Weight = ", self.weight)
-    #     print("Status = ", self.status)
-    #     print("Delivery Time = ", self.delivery_time)
-    #     print("Left HUB = ", self.left_hub)
-    #     return
 
-
-    #****************************
     def __str__(self):  # overwrite print(Package) otherwise it will print object reference
-        # ***** Not working
-        # if self.delivery_time > self.left_hub:
-        #     self.status = "En route"
-        # else:
-        #     self.status = "At HUB"
-        return "Package ID: %s\n    Address: %s, %s, %s, %s    \n    Deadline: %s, Weight: %s lbs, Status: %s\n    Expected delivery: %s, Time left HUB: %s" % (self.id, self.address, self.city, self.state, self.zip, self.deadline, self.weight, self.status, self.delivery_time, self.left_hub)
+        return "Package ID: %s\n    Address: %s, %s, %s, %s    \n    Deadline: %s, Weight: %s lbs, Status: %s\n    Delivered: %s, Time left HUB: %s" % (self.id, self.address, self.city, self.state, self.zip, self.deadline, self.weight, self.status, self.delivery_time, self.left_hub)
+
+    # Updates status of package to en route, delivered, or at hub based on time
+    def time_status(self, status_time):
+            new_status = "En route"
+            if status_time > self.delivery_time:
+                new_status = "Delivered"
+
+            elif status_time < self.left_hub:
+                new_status = "At HUB"
+            return self.get_info(status_time, new_status)
 
 
-    #Not working
-    # def time_status(self, status_time):
-    #         new_status = "En route"
-    #         if status_time > self.delivery_time:
-    #             self.status = "Delivered"
-    #             new_status = "Delivered"
-    #             return " Package ID: %s, Address: %s, %s, %s, %s, Deadline: %s, Weight: %s lbs, %s, Time Delivered: %s, Time Left HUB: %s" % (self.id, self.address, self.city, self.state, self.zip, self.deadline, self.weight, self.status, self.delivery_time, self.left_hub, new_status)
-    #         elif status_time < self.left_hub:
-    #             self.status = "At HUB"
-    #             # new_status = "At HUB"
-    #             return " status_time < self.left_hub Package ID: %s, Address: %s, %s, %s, %s, Deadline: %s, Weight: %s lbs, Updated Status: %s" % (self.id, self.address, self.city, self.state, self.zip, self.deadline, self.weight, new_status)
-    #         else:
-    #             return " else Package ID: %s, %s, %s, %s, %s, Weight: %s lbs, Deadline: %s, Updated Status: %s" % (self.id, self.address, self.city, self.state, self.zip, self.weight, self.deadline, new_status)
+    def get_info(self, comparison_time, new_status):
 
+            address = self.address
+            city = self.city
+            state = self.state
+            zip = self.zip
+            # update package 9 at 10:20am
+            if self.id == 9 and comparison_time < datetime.timedelta(hours=10, minutes=20):
+                address = "300 State St"
+                city = "Salt Lake City"
+                state = "UT"
+                zip = "84103"
+            else:
+                address = "410 S State St"
+                city = "Salt Lake City"
+                state = "UT"
+                zip = "84111"
 
-def time_status():
-
-    return None
+            return "Package ID: %s\n    Address: %s, %s, %s, %s    \n    Deadline: %s, Weight: %s lbs, Status: %s\n    Delivered: %s, Time left HUB: %s" % (self.id, address, city, state, zip, self.deadline, self.weight, new_status, self.delivery_time, self.left_hub)
