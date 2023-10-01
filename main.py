@@ -91,8 +91,8 @@ total_miles = truck_1.miles + truck_2.miles + truck_3.miles # Total miles for al
 
 # User input for ui
 def get_user_input():
-    user_time_hour = int(input("Enter hours in 24 hour format HH:")) # user input for hours
-    user_time_minutes = int(input("Enter minutes MM:")) # user input for minutes
+    user_time_hour = int(input("Enter hours in 24 hour format HH: ")) # user input for hours
+    user_time_minutes = int(input("Enter minutes MM: ")) # user input for minutes
     user_time = datetime.timedelta(hours=user_time_hour, minutes=user_time_minutes) # gets time
     return user_time
 
