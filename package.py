@@ -25,16 +25,16 @@ class Package:
 
     # Updates status of package to en route, delivered, or at hub based on time
     def time_status(self, status_time):
-            new_status = "En route"
+            new_status = "En route" # if statement to show en route
             if status_time > self.delivery_time:
                 new_status = "Delivered"
 
-            elif status_time < self.left_hub:
+            elif status_time < self.left_hub: # else statement to show at hub
                 new_status = "At HUB"
             return self.get_info(status_time, new_status)
 
 
-    def get_info(self, comparison_time, new_status):
+    def get_info(self, comparison_time, new_status): # package 9's address updates at 10:20am
 
             address = self.address
             city = self.city

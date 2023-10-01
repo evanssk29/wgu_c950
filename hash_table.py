@@ -14,8 +14,7 @@ class hash_table:
 
     # Inserts a new item into the hash table.
     def insert(self, key, item):  # does both insert and update
-        # get the bucket list where this item will go.
-        bucket = hash(key) % len(self.hash_array)
+        bucket = hash(key) % len(self.hash_array) # get the bucket list where this item will go.
         bucket_list = self.hash_array[bucket]
 
         # update key if it is already in the bucket
@@ -36,7 +35,6 @@ class hash_table:
         # get the bucket list where this key would be.
         bucket = hash(key) % len(self.hash_array)
         bucket_list = self.hash_array[bucket]
-        # print(bucket_list)
 
         # search for the key in the bucket list
         for kv in bucket_list:

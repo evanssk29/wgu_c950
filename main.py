@@ -91,21 +91,21 @@ total_miles = truck_1.miles + truck_2.miles + truck_3.miles # Total miles for al
 
 # User input for ui
 def get_user_input():
-    user_time_hour = int(input("Enter hours in 24 hour format HH:"))
-    user_time_minutes = int(input("Enter minutes MM:"))
-    user_time = datetime.timedelta(hours=user_time_hour, minutes=user_time_minutes)
+    user_time_hour = int(input("Enter hours in 24 hour format HH:")) # user input for hours
+    user_time_minutes = int(input("Enter minutes MM:")) # user input for minutes
+    user_time = datetime.timedelta(hours=user_time_hour, minutes=user_time_minutes) # gets time
     return user_time
 
 
 # User interface to search for packages
 while True:
-    print("****** Western Governors University Package Service ******")
+    print("****** Western Governors University Package Service ******") # user interface title
     print("Total mileage for all trucks:", total_miles) # Prints total miles of all trucks combines
-    print("1: All package status at certain time.")
-    print("2: Single package status at a certain time.")
-    print("3: All package status.")
-    print("4: Exit")
-    choice = input("Select an option: ")
+    print("1: All package status at certain time.") # user option 1
+    print("2: Single package status at a certain time.") # user option 2
+    print("3: All package status.") # user option 3
+    print("4: Exit") # user option 4
+    choice = input("Select an option: ") # enter an option
 
     if choice == "1": # Prints all package status at specified time
 
@@ -119,7 +119,7 @@ while True:
 
     elif choice == "2": # Prints single package status at specified time
 
-        package_id = int(input ("Enter package id:"))
+        package_id = int(input ("Enter package id:")) # asks user to enter package id
         p = package_hashtable.search(package_id)
         user_time = get_user_input()
         print(p.time_status(user_time))
