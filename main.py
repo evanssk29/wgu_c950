@@ -46,10 +46,10 @@ def truck_delivery(truck):
     current_time = truck.time_left_hub
     current_location = truck.current_location
 
-    while len(truck.packages) > 0:
+    while len(truck.packages) > 0: # while loop for truck has packages
         min_distance = 1000
         min_package = None
-        for id in truck.packages:
+        for id in truck.packages:# searches for package
             package = package_hashtable.search(id)
             distance = get_distance_two_addresses(current_location, package.address)
             if distance < min_distance:
@@ -60,10 +60,10 @@ def truck_delivery(truck):
         current_time = current_time + datetime.timedelta(hours= min_distance/18)
         min_package.delivery_time = current_time
         min_package.status = "Delivered"
-        min_package.left_hub = truck.time_left_hub
-        truck.packages.remove(min_package.id)
-        truck.miles += min_distance
-        current_location = min_package.address
+        min_package.left_hub = truck.time_left_hub # time truck left hub
+        truck.packages.remove(min_package.id) # remove package
+        truck.miles += min_distance # mileage for truck
+        current_location = min_package.address # trucks location
 
 
 

@@ -2,7 +2,7 @@
 # # Student ID: 000391474
 import csv
 
-
+# chaining hash table class
 class hash_table:
 
     def __init__(self, length = 40):
