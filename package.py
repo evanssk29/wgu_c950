@@ -47,10 +47,4 @@ class Package:
                 state = "UT"
                 zip = "84103"
 
-            # else :
-            #     address = "410 S State St"
-            #     city = "Salt Lake City"
-            #     state = "UT"
-            #     zip = "84111"
-
             return "Package ID: %s, Address: %s, %s, %s, %s, Deadline: %s, Weight: %s lbs, Status: %s, Delivered: %s, Time left HUB: %s" % (self.id, address, city, state, zip, self.deadline, self.weight, new_status, self.delivery_time, self.left_hub)
